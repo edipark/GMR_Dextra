@@ -10,6 +10,11 @@ import numpy as np
 from rich import print
 
 
+def _wxyz_to_xyzw(q):
+    q = np.asarray(q)
+    return np.concatenate([q[..., 1:4], q[..., 0:1]], axis=-1)
+
+
 def draw_frame(
     pos,
     mat,
@@ -19,6 +24,9 @@ def draw_frame(
     orientation_correction=R.from_euler("xyz", [0, 0, 0]),
     pos_offset=np.array([0, 0, 0]),
 ):
+    def _wxyz_to_xyzw(q):
+        q = np.asarray(q)
+        return np.concatenate([q[..., 1:4], q[..., 0:1]], axis=-1)
     rgba_list = [[1, 0, 0, 1], [0, 1, 0, 1], [0, 0, 1, 1]]
     for i in range(3):
         geom = v.user_scn.geoms[v.user_scn.ngeom]
@@ -136,7 +144,7 @@ class RobotMotionViewer:
             for human_body_name, (pos, rot) in human_motion_data.items():
                 draw_frame(
                     pos,
-                    R.from_quat(rot, scalar_first=True).as_matrix(),
+                    R.from_quat(_wxyz_to_xyzw(rot)).as_matrix(),
                     self.viewer,
                     human_point_scale,
                     pos_offset=human_pos_offset,

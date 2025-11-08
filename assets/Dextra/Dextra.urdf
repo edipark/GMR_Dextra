@@ -1,0 +1,588 @@
+<?xml version="1.0" ?>
+<robot name="Dextra" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find Dextra_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find Dextra_description)/urdf/Dextra.trans" />
+<xacro:include filename="$(find Dextra_description)/urdf/Dextra.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.00627341232459322 -0.05030753278662805 0.2925121548226629" rpy="0 0 0"/>
+    <mass value="0.36768618241131146"/>
+    <inertia ixx="0.001076" iyy="0.000714" izz="0.000728" ixy="-0.0" iyz="0.0" ixz="2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="L_HipYaw_Link_1">
+  <inertial>
+    <origin xyz="-0.00022141673750296006 9.188329669757023e-07 -0.012315651864888921" rpy="0 0 0"/>
+    <mass value="0.008262773887017176"/>
+    <inertia ixx="1e-06" iyy="4e-06" izz="3e-06" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.019616 0.012758 -0.227352" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/L_HipYaw_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.019616 0.012758 -0.227352" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/L_HipYaw_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="L_HipRoll_Link_1">
+  <inertial>
+    <origin xyz="0.0032683709035306783 0.0004440214540814679 -0.0160344002798124" rpy="0 0 0"/>
+    <mass value="0.10086698454624872"/>
+    <inertia ixx="3.5e-05" iyy="8.5e-05" izz="6.7e-05" ixy="-1e-06" iyz="-0.0" ixz="-2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.004384 0.012754 -0.196986" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/L_HipRoll_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.004384 0.012754 -0.196986" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/L_HipRoll_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="L_Thigh_Link_1">
+  <inertial>
+    <origin xyz="-0.00042813552555128614 -0.021794224651023958 -0.07116193993435724" rpy="0 0 0"/>
+    <mass value="0.05676082375351736"/>
+    <inertia ixx="4.7e-05" iyy="4.1e-05" izz="1.3e-05" ixy="0.0" iyz="-1e-06" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.019316 -0.008186 -0.196986" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/L_Thigh_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.019316 -0.008186 -0.196986" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/L_Thigh_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="L_Calf_Link_1">
+  <inertial>
+    <origin xyz="0.00910334205642771 0.021000277044508714 -0.04084599702024887" rpy="0 0 0"/>
+    <mass value="0.023603813445455927"/>
+    <inertia ixx="3e-05" iyy="2.3e-05" izz="1.3e-05" ixy="0.0" iyz="0.0" ixz="-2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.018895 0.033754 -0.101179" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/L_Calf_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.018895 0.033754 -0.101179" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/L_Calf_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="L_AnklePitch_Link_1">
+  <inertial>
+    <origin xyz="-0.020428845970642578 -0.020493235788770957 0.01603590280264207" rpy="0 0 0"/>
+    <mass value="0.10088256459797469"/>
+    <inertia ixx="3.5e-05" iyy="8.5e-05" izz="6.7e-05" ixy="-1e-06" iyz="0.0" ixz="2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.018895 -0.008246 -0.008179" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/L_AnklePitch_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.018895 -0.008246 -0.008179" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/L_AnklePitch_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="L_AnkleRoll_Link_1">
+  <inertial>
+    <origin xyz="0.03879785509246017 0.005402083029960376 -0.025346604296983474" rpy="0 0 0"/>
+    <mass value="0.026333940725064845"/>
+    <inertia ixx="9e-06" iyy="2.2e-05" izz="2.7e-05" ixy="-1e-06" iyz="1e-06" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.004805 0.012694 -0.008179" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/L_AnkleRoll_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.004805 0.012694 -0.008179" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/L_AnkleRoll_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="R_HipYaw_Link_1">
+  <inertial>
+    <origin xyz="-0.00022130032768745075 9.188329670728468e-07 -0.012315651864889143" rpy="0 0 0"/>
+    <mass value="0.008262773887017176"/>
+    <inertia ixx="1e-06" iyy="4e-06" izz="3e-06" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.019598 0.087858 -0.227352" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/R_HipYaw_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.019598 0.087858 -0.227352" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/R_HipYaw_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="R_HipRoll_Link_1">
+  <inertial>
+    <origin xyz="0.0032686822470407656 -0.0004436866949736329 -0.016033922886961288" rpy="0 0 0"/>
+    <mass value="0.10086371393569897"/>
+    <inertia ixx="3.5e-05" iyy="8.5e-05" izz="6.7e-05" ixy="1e-06" iyz="0.0" ixz="-2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.004402 0.087854 -0.196986" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/R_HipRoll_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.004402 0.087854 -0.196986" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/R_HipRoll_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="R_Thigh_Link_1">
+  <inertial>
+    <origin xyz="-0.00042801922182934826 0.021794777276935184 -0.07116193703453796" rpy="0 0 0"/>
+    <mass value="0.05676081821774733"/>
+    <inertia ixx="4.7e-05" iyy="4.1e-05" izz="1.3e-05" ixy="-0.0" iyz="1e-06" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.019298 0.108794 -0.196986" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/R_Thigh_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.019298 0.108794 -0.196986" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/R_Thigh_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="R_Calf_Link_1">
+  <inertial>
+    <origin xyz="0.00910345846633177 -0.02099972295523861 -0.04084599702024952" rpy="0 0 0"/>
+    <mass value="0.029504766806819935"/>
+    <inertia ixx="3.7e-05" iyy="2.8e-05" izz="1.6e-05" ixy="-0.0" iyz="-0.0" ixz="-2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.018877 0.066854 -0.101179" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/R_Calf_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.018877 0.066854 -0.101179" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/R_Calf_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="R_AnklePitch_Link_1">
+  <inertial>
+    <origin xyz="-0.020429462351855852 0.0204934104918075 0.016037702389448474" rpy="0 0 0"/>
+    <mass value="0.10089489009487826"/>
+    <inertia ixx="3.5e-05" iyy="8.5e-05" izz="6.7e-05" ixy="1e-06" iyz="-0.0" ixz="2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.018877 0.108854 -0.008179" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/R_AnklePitch_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.018877 0.108854 -0.008179" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/R_AnklePitch_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="R_AnkleRoll_Link_1">
+  <inertial>
+    <origin xyz="0.038797971502364414 -0.00540152894068989 -0.025346487887168548" rpy="0 0 0"/>
+    <mass value="0.026333940725064585"/>
+    <inertia ixx="9e-06" iyy="2.2e-05" izz="2.7e-05" ixy="1e-06" iyz="-1e-06" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.004823 0.087914 -0.008161" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/R_AnkleRoll_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.004823 0.087914 -0.008161" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/R_AnkleRoll_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="R_Shoulder_Link_1">
+  <inertial>
+    <origin xyz="-3.140972154591637e-07 -0.010895339421669356 -1.4247679728796037e-06" rpy="0 0 0"/>
+    <mass value="0.007218780615993729"/>
+    <inertia ixx="1e-06" iyy="3e-06" izz="4e-06" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.017116 0.112298 -0.326592" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/R_Shoulder_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.017116 0.112298 -0.326592" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/R_Shoulder_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="R_Upperarm_Link_1">
+  <inertial>
+    <origin xyz="-0.020390441986815996 9.60360458046594e-07 -0.039722025816735174" rpy="0 0 0"/>
+    <mass value="0.08776117508658782"/>
+    <inertia ixx="8e-05" iyy="8.7e-05" izz="1.8e-05" ixy="-0.0" iyz="0.0" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.038116 0.139664 -0.326587" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/R_Upperarm_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.038116 0.139664 -0.326587" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/R_Upperarm_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="L_Shoulder_Link_1">
+  <inertial>
+    <origin xyz="-3.1409721521977185e-07 0.010895351228528987 -1.4247679732126706e-06" rpy="0 0 0"/>
+    <mass value="0.007218780615993755"/>
+    <inertia ixx="1e-06" iyy="3e-06" izz="4e-06" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.017116 -0.011682 -0.326592" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/L_Shoulder_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.017116 -0.011682 -0.326592" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/L_Shoulder_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="L_Upperarm_Link_1">
+  <inertial>
+    <origin xyz="-0.01653048303828944 -7.129115785348139e-07 -0.03972235830015536" rpy="0 0 0"/>
+    <mass value="0.08775791384790331"/>
+    <inertia ixx="8e-05" iyy="8.8e-05" izz="1.9e-05" ixy="0.0" iyz="-0.0" ixz="8e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.038116 -0.039048 -0.326587" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/L_Upperarm_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.038116 -0.039048 -0.326587" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/L_Upperarm_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="L_Elbow_Link_1">
+  <inertial>
+    <origin xyz="-9.062550458960317e-07 2.7539507696516807e-07 -0.010895114399328276" rpy="0 0 0"/>
+    <mass value="0.0072187806159937275"/>
+    <inertia ixx="4e-06" iyy="1e-06" izz="3e-06" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.037976 -0.039048 -0.239965" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/L_Elbow_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.037976 -0.039048 -0.239965" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/L_Elbow_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="L_Hand_Link_1">
+  <inertial>
+    <origin xyz="7.460546423976311e-07 -0.01914032402850592 -0.02736878635576337" rpy="0 0 0"/>
+    <mass value="0.061024543267336015"/>
+    <inertia ixx="5e-05" iyy="4.8e-05" izz="1e-05" ixy="-0.0" iyz="2e-06" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.037972 -0.060048 -0.212599" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/L_Hand_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.037972 -0.060048 -0.212599" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/L_Hand_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="R_Elbow_Link_1">
+  <inertial>
+    <origin xyz="1.8205041123070531e-06 -2.635883647184034e-07 -0.01089511439932836" rpy="0 0 0"/>
+    <mass value="0.007218780615993729"/>
+    <inertia ixx="4e-06" iyy="1e-06" izz="3e-06" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.029976 0.139664 -0.239965" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/R_Elbow_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.029976 0.139664 -0.239965" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/R_Elbow_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="R_Hand_Link_1">
+  <inertial>
+    <origin xyz="9.284051383368075e-07 0.019140337105320343 -0.027368789299999446" rpy="0 0 0"/>
+    <mass value="0.06102453773154259"/>
+    <inertia ixx="5e-05" iyy="4.8e-05" izz="1e-05" ixy="0.0" iyz="-2e-06" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.029981 0.160664 -0.212599" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/R_Hand_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.029981 0.160664 -0.212599" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="./assets/Dextra/meshes/R_Hand_Link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Revolute 13" type="continuous">
+  <origin xyz="0.019616 -0.012758 0.227352" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="L_HipYaw_Link_1"/>
+  <axis xyz="-0.0 -0.0 1.0"/>
+</joint>
+
+<joint name="Revolute 14" type="continuous">
+  <origin xyz="-0.024 4e-06 -0.030366" rpy="0 0 0"/>
+  <parent link="L_HipYaw_Link_1"/>
+  <child link="L_HipRoll_Link_1"/>
+  <axis xyz="1.0 -0.0 -0.0"/>
+</joint>
+
+<joint name="Revolute 15" type="continuous">
+  <origin xyz="0.0237 0.02094 0.0" rpy="0 0 0"/>
+  <parent link="L_HipRoll_Link_1"/>
+  <child link="L_Thigh_Link_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Revolute 16" type="continuous">
+  <origin xyz="-0.000421 -0.04194 -0.095807" rpy="0 0 0"/>
+  <parent link="L_Thigh_Link_1"/>
+  <child link="L_Calf_Link_1"/>
+  <axis xyz="-0.0 -1.0 -0.0"/>
+</joint>
+
+<joint name="Revolute 17" type="continuous">
+  <origin xyz="0.0 0.042 -0.093" rpy="0 0 0"/>
+  <parent link="L_Calf_Link_1"/>
+  <child link="L_AnklePitch_Link_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Revolute 18" type="continuous">
+  <origin xyz="-0.0237 -0.02094 0.0" rpy="0 0 0"/>
+  <parent link="L_AnklePitch_Link_1"/>
+  <child link="L_AnkleRoll_Link_1"/>
+  <axis xyz="1.0 0.0 -0.0"/>
+</joint>
+
+<joint name="Revolute 19" type="continuous">
+  <origin xyz="0.019598 -0.087858 0.227352" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="R_HipYaw_Link_1"/>
+  <axis xyz="0.0 -0.0 -1.0"/>
+</joint>
+
+<joint name="Revolute 20" type="continuous">
+  <origin xyz="-0.024 4e-06 -0.030366" rpy="0 0 0"/>
+  <parent link="R_HipYaw_Link_1"/>
+  <child link="R_HipRoll_Link_1"/>
+  <axis xyz="1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="Revolute 21" type="continuous">
+  <origin xyz="0.0237 -0.02094 0.0" rpy="0 0 0"/>
+  <parent link="R_HipRoll_Link_1"/>
+  <child link="R_Thigh_Link_1"/>
+  <axis xyz="-0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="Revolute 22" type="continuous">
+  <origin xyz="-0.000421 0.04194 -0.095807" rpy="0 0 0"/>
+  <parent link="R_Thigh_Link_1"/>
+  <child link="R_Calf_Link_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="Revolute 23" type="continuous">
+  <origin xyz="0.0 -0.042 -0.093" rpy="0 0 0"/>
+  <parent link="R_Calf_Link_1"/>
+  <child link="R_AnklePitch_Link_1"/>
+  <axis xyz="-0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="Revolute 24" type="continuous">
+  <origin xyz="-0.0237 0.02094 -1.8e-05" rpy="0 0 0"/>
+  <parent link="R_AnklePitch_Link_1"/>
+  <child link="R_AnkleRoll_Link_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+<joint name="Revolute 25" type="continuous">
+  <origin xyz="0.017116 -0.112298 0.326592" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="R_Shoulder_Link_1"/>
+  <axis xyz="-0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="Revolute 26" type="continuous">
+  <origin xyz="0.021 -0.027366 -5e-06" rpy="0 0 0"/>
+  <parent link="R_Shoulder_Link_1"/>
+  <child link="R_Upperarm_Link_1"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+</joint>
+
+<joint name="Revolute 29" type="continuous">
+  <origin xyz="0.017116 0.011682 0.326592" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="L_Shoulder_Link_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="Revolute 30" type="continuous">
+  <origin xyz="0.021 0.027366 -5e-06" rpy="0 0 0"/>
+  <parent link="L_Shoulder_Link_1"/>
+  <child link="L_Upperarm_Link_1"/>
+  <axis xyz="1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="Revolute 31" type="continuous">
+  <origin xyz="-0.00014 0.0 -0.086622" rpy="0 0 0"/>
+  <parent link="L_Upperarm_Link_1"/>
+  <child link="L_Elbow_Link_1"/>
+  <axis xyz="0.0 -0.0 -1.0"/>
+</joint>
+
+<joint name="Revolute 32" type="continuous">
+  <origin xyz="-4e-06 0.021 -0.027366" rpy="0 0 0"/>
+  <parent link="L_Elbow_Link_1"/>
+  <child link="L_Hand_Link_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="Revolute 34" type="continuous">
+  <origin xyz="-0.00814 0.0 -0.086622" rpy="0 0 0"/>
+  <parent link="R_Upperarm_Link_1"/>
+  <child link="R_Elbow_Link_1"/>
+  <axis xyz="-0.0 -0.0 -1.0"/>
+</joint>
+
+<joint name="Revolute 35" type="continuous">
+  <origin xyz="5e-06 -0.021 -0.027366" rpy="0 0 0"/>
+  <parent link="R_Elbow_Link_1"/>
+  <child link="R_Hand_Link_1"/>
+  <axis xyz="-0.0 1.0 -0.0"/>
+</joint>
+
+</robot>

@@ -7,6 +7,16 @@ from scipy.interpolate import interp1d
 
 import general_motion_retargeting.utils.lafan_vendor.utils as utils
 
+def _as_quat_wxyz(rot):
+    """Return quaternion in wxyz order from a SciPy Rotation.
+
+    SciPy's Rotation.as_quat() returns quaternions in xyzw order across 1.x.
+    This project expects scalar-first (wxyz), so we reorder explicitly.
+    """
+    q_xyzw = rot.as_quat()
+    # ensure last dim exists
+    return np.concatenate([q_xyzw[..., 3:4], q_xyzw[..., 0:3]], axis=-1)
+
 def load_smpl_file(smpl_file):
     smpl_data = np.load(smpl_file, allow_pickle=True)
     return smpl_data
@@ -59,7 +69,7 @@ def load_gvhmr_pred_file(gvhmr_pred_file, smplx_body_model_path):
     
     # correct rotations
     # rotation_matrix = np.array([[1, 0, 0], [0, 0, -1], [0, 1, 0]])
-    # rotation_quat = R.from_matrix(rotation_matrix).as_quat(scalar_first=True)
+    # rotation_quat = _as_quat_wxyz(R.from_matrix(rotation_matrix))
     
     # smpl_params_global['body_pose'] = smpl_params_global['body_pose'] @ rotation_matrix
     # smpl_params_global['global_orient'] = smpl_params_global['global_orient'] @ rotation_quat
@@ -127,7 +137,7 @@ def get_smplx_data(smplx_data, body_model, smplx_output, curr_frame):
                 full_body_pose[i].squeeze()
             )
         joint_orientations.append(rot)
-        result[joint_name] = (joints[i], rot.as_quat(scalar_first=True))
+        result[joint_name] = (joints[i], _as_quat_wxyz(rot))
 
   
     return result
@@ -251,7 +261,7 @@ def get_smplx_data_offline_fast(smplx_data, body_model, smplx_output, tgt_fps=30
                     single_full_body_pose[i].squeeze()
                 )
             joint_orientations.append(rot)
-            result[joint_name] = (single_joints[i], rot.as_quat(scalar_first=True))
+            result[joint_name] = (single_joints[i], _as_quat_wxyz(rot))
 
 
         smplx_data_frames.append(result)
@@ -344,14 +354,14 @@ def get_gvhmr_data_offline_fast(smplx_data, body_model, smplx_output, tgt_fps=30
                     single_full_body_pose[i].squeeze()
                 )
             joint_orientations.append(rot)
-            result[joint_name] = (single_joints[i], rot.as_quat(scalar_first=True))
+            result[joint_name] = (single_joints[i], _as_quat_wxyz(rot))
 
 
         smplx_data_frames.append(result)
         
     # add correct rotations
     rotation_matrix = np.array([[1, 0, 0], [0, 0, -1], [0, 1, 0]])
-    rotation_quat = R.from_matrix(rotation_matrix).as_quat(scalar_first=True)
+    rotation_quat = _as_quat_wxyz(R.from_matrix(rotation_matrix))
     for result in smplx_data_frames:
         for joint_name in result.keys():
             orientation = utils.quat_mul(rotation_quat, result[joint_name][1])

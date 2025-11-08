@@ -95,7 +95,6 @@ dist/
 .cache/
 *.cache
 
-videos/
 PythonClient/
 
 TEST_MOTIONS_MY.md

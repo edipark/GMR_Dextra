@@ -111,9 +111,9 @@ yaml_to_flat_csv.py
 
 retarget_motion/
 
-# Assets: ignore all except Dextra and unitree_h1
+# Assets: ignore all except Dextra and unitree_g1
 assets/*
 !assets/Dextra/
 !assets/Dextra/**
-!assets/unitree_h1/
-!assets/unitree_h1/**
+!assets/unitree_g1/
+!assets/unitree_g1/**

@@ -110,3 +110,10 @@ batch_twist1_to_csv.py
 yaml_to_flat_csv.py
 
 retarget_motion/
+
+# Assets: ignore all except Dextra and unitree_h1
+assets/*
+!assets/Dextra/
+!assets/Dextra/**
+!assets/unitree_h1/
+!assets/unitree_h1/**

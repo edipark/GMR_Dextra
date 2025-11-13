@@ -23,6 +23,7 @@ ROBOT_XML_DICT = {
     "tienkung": ASSET_ROOT / "tienkung" / "mjcf" / "tienkung.xml",
     "pal_talos": ASSET_ROOT / "pal_talos" / "talos.xml",
     "Dextra": ASSET_ROOT / "Dextra" / "Dextra.xml",
+    "Dextra_lowerbody": ASSET_ROOT / "Dextra_lowerbody" / "Dextra_lowerbody.xml",
 }
 
 IK_CONFIG_DICT = {
@@ -45,6 +46,7 @@ IK_CONFIG_DICT = {
         "pnd_adam_lite": IK_CONFIG_ROOT / "smplx_to_adam.json",
         "tienkung": IK_CONFIG_ROOT / "smplx_to_tienkung.json",
         "Dextra": IK_CONFIG_ROOT / "smplx_to_dextra.json",
+        "Dextra_lowerbody": IK_CONFIG_ROOT / "smplx_to_dextra_lowerbody.json",
     },
     "bvh_lafan1":{
         "unitree_g1": IK_CONFIG_ROOT / "bvh_lafan1_to_g1.json",
@@ -55,6 +57,7 @@ IK_CONFIG_DICT = {
         "engineai_pm01": IK_CONFIG_ROOT / "bvh_lafan1_to_pm01.json",
         "pal_talos": IK_CONFIG_ROOT / "bvh_to_talos.json",
         "Dextra": IK_CONFIG_ROOT / "bvh_to_dextra.json",
+        "Dextra_lowerbody": IK_CONFIG_ROOT / "bvh_to_dextra_lowerbody.json",
     },
     "bvh_nokov":{
         "unitree_g1": IK_CONFIG_ROOT / "bvh_nokov_to_g1.json",
@@ -63,10 +66,12 @@ IK_CONFIG_DICT = {
         "unitree_g1": IK_CONFIG_ROOT / "fbx_to_g1.json",
         "unitree_g1_with_hands": IK_CONFIG_ROOT / "fbx_to_g1.json",
         "Dextra": IK_CONFIG_ROOT / "fbx_to_dextra.json",
+        "Dextra_lowerbody": IK_CONFIG_ROOT / "fbx_to_dextra_lowerbody.json",
     },
     "fbx_offline":{
         "unitree_g1": IK_CONFIG_ROOT / "fbx_offline_to_g1.json",
         "Dextra": IK_CONFIG_ROOT / "fbx_offline_to_dextra.json",
+        "Dextra_lowerbody": IK_CONFIG_ROOT / "fbx_offline_to_dextra_lowerbody.json",
     },
 }
 
@@ -90,6 +95,7 @@ ROBOT_BASE_DICT = {
     "tienkung": "Base_link",
     "pal_talos": "base_link",
     "Dextra": "base_link",
+    "Dextra_lowerbody": "base_link",
 }
 
 VIEWER_CAM_DISTANCE_DICT = {
@@ -111,4 +117,5 @@ VIEWER_CAM_DISTANCE_DICT = {
     "tienkung": 3.0,
     "pal_talos": 3.0,
     "Dextra": 1.0,
+    "Dextra_lowerbody": 1.0,
 }

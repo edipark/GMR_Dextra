@@ -1,19 +1,19 @@
 {
     "robot_root_name": "base_link",
     "human_root_name": "pelvis",
-    "ground_height":0.15,
+    "ground_height": -0.08,
     "human_height_assumption": 1.8,
     "use_ik_match_table1": true,
     "use_ik_match_table2": true,
     "human_scale_table": {
-        "pelvis": 0.9,
+        "pelvis": 0.25,
 
-        "left_hip": 0.9,
-        "right_hip": 0.9,
-        "left_knee": 0.9,
-        "right_knee": 0.9,
-        "left_foot": 0.9,
-        "right_foot": 0.9
+        "left_hip": 0.25,
+        "right_hip": 0.25,
+        "left_knee": 0.3,
+        "right_knee": 0.3,
+        "left_foot": 0.3,
+        "right_foot": 0.3
     },
 
     "ik_match_table1": {
@@ -33,7 +33,7 @@
                 -0.5
             ]
         ],
-        "L_HipRoll_Link_1": [
+        "L_Thigh_Link_1": [
             "left_hip",
             0,
             10,
@@ -49,7 +49,7 @@
                 -0.4267755048530407
             ]
         ],
-        "L_Thigh_Link_1": [
+        "L_Calf_Link_1": [
             "left_knee",
             0,
             10,
@@ -65,7 +65,7 @@
                 -0.5
             ]
         ],
-        "L_AnkleRoll_Link_1": [
+        "L_AnklePitch_Link_1": [
             "left_foot",
             100,
             10,
@@ -81,7 +81,7 @@
                 -0.5
             ]
         ],
-        "R_HipRoll_Link_1": [
+        "R_Thigh_Link_1": [
             "right_hip",
             0,
             10,
@@ -113,7 +113,7 @@
                 -0.5
             ]
         ],
-        "R_AnkleRoll_Link_1": [
+        "R_AnklePitch_Link_1": [
             "right_foot",
             100,
             10,
@@ -147,7 +147,7 @@
                 -0.5
             ]
         ],
-        "L_HipRoll_Link_1": [
+        "L_Thigh_Link_1": [
             "left_hip",
             10,
             5,
@@ -180,7 +180,7 @@
                 -0.5
             ]
         ],
-        "L_AnkleRoll_Link_1": [
+        "L_AnklePitch_Link_1": [
             "left_foot",
             100,
             50,
@@ -191,7 +191,7 @@
             ],
             [ -0.5, 0.5, 0.5, 0.5 ]
         ],
-        "R_HipRoll_Link_1": [
+        "R_Thigh_Link_1": [
             "right_hip",
             10,
             5,
@@ -223,7 +223,7 @@
                 -0.5
             ]
         ],
-        "R_AnkleRoll_Link_1": [
+        "R_AnklePitch_Link_1": [
             "right_foot",
             100,
             50,

@@ -206,6 +206,32 @@ Each frame of **human motion data** is formulated as a dict of (human_body_name,
 
 Each frame of **robot motion data** can be understood as a tuple of (robot_base_translation, robot_base_rotation, robot_joint_positions).
 
+## Pre-retargeted Motion Files
+
+This repository includes pre-retargeted motion files for Dextra robot that you can use directly:
+
+### Available Motion Files
+
+- **`retarget_motion/dextra_walking_improved.pkl`** - Improved walking motion for Dextra robot
+- **`retarget_motion/humanoid_walking.pkl`** - Humanoid walking motion
+
+### Visualize Pre-retargeted Motions
+
+You can visualize these pre-retargeted motions directly:
+
+```bash
+# Visualize Dextra walking motion
+python scripts/vis_robot_motion.py --robot Dextra --robot_motion_path retarget_motion/dextra_walking_improved.pkl
+
+# Visualize with video recording
+python scripts/vis_robot_motion.py --robot Dextra --robot_motion_path retarget_motion/dextra_walking_improved.pkl --record_video --video_path videos/dextra_walking_improved.mp4
+```
+
+### Example Videos
+
+- **`videos/Dextra_07_01_stageii.mp4`** - Full-body Dextra motion demonstration
+- **`videos/Dextra_lowerbody_07_01_stageii.mp4`** - Lower-body only Dextra motion demonstration
+
 ## Dextra Configuration
 
 The IK configuration files for Dextra are located in:

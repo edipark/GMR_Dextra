@@ -2,14 +2,7 @@
 
 This repository provides motion retargeting capabilities for the **Dextra** humanoid robot using the [GMR (General Motion Retargeting)](https://github.com/YanjieZe/GMR) framework.
 
-  <a href="https://arxiv.org/abs/2505.02833">
-  </a> <a href="https://arxiv.org/abs/2510.02252">
-  </a> <a href="https://opensource.org/licenses/MIT">
-  </a>
 
-![Banner for GMR](./assets/GMR.png)
-
-![GMR Pipeline](./assets/GMR_pipeline.png)
 
 ## About Dextra
 

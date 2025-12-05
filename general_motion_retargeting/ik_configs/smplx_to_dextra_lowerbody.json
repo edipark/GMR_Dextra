@@ -15,6 +15,16 @@
         "left_foot": 0.3,
         "right_foot": 0.3
     },
+    "joint_damping": {
+        "L_HipYaw_Joint": 100.0,
+        "R_HipYaw_Joint": 100.0,
+        "L_Thigh_Joint": 2000.0,
+        "R_Thigh_Joint": 2000.0
+    },
+    "joint_velocity_limit": {
+        "L_Thigh_Joint": 0.0,
+        "R_Thigh_Joint": 0.0
+    },
 
     "ik_match_table1": {
         "base_link": [
@@ -71,7 +81,7 @@
             10,
             [
                 0.0,
-                0.02,
+                0.04,
                 0.0
             ],
             [
@@ -119,7 +129,7 @@
             10,
             [
                 0.0,
-                -0.02,
+                -0.04,
                 0.0
             ],
             [

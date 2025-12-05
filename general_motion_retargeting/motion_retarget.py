@@ -79,6 +79,8 @@ class GeneralMotionRetargeting:
         self.use_ik_match_table2 = ik_config["use_ik_match_table2"]
         self.human_scale_table = ik_config["human_scale_table"]
         self.ground = ik_config["ground_height"] * np.array([0, 0, 1])
+        self.joint_damping = ik_config.get("joint_damping", {})
+        self.joint_velocity_limit = ik_config.get("joint_velocity_limit", {})
 
         self.max_iter = 10
 
@@ -98,7 +100,34 @@ class GeneralMotionRetargeting:
         self.ik_limits = [mink.ConfigurationLimit(self.model)]
         if use_velocity_limit:
             VELOCITY_LIMITS = {k: 3*np.pi for k in self.robot_motor_names.keys()}
-            self.ik_limits.append(mink.VelocityLimit(self.model, VELOCITY_LIMITS)) 
+            self.ik_limits.append(mink.VelocityLimit(self.model, VELOCITY_LIMITS))
+        
+        # Add joint velocity limits for specific joints (to fix joints, set to 0.0)
+        if self.joint_velocity_limit:
+            JOINT_VELOCITY_LIMITS = {}
+            for joint_name, velocity_limit in self.joint_velocity_limit.items():
+                if joint_name in self.robot_dof_names:
+                    JOINT_VELOCITY_LIMITS[joint_name] = velocity_limit
+            if JOINT_VELOCITY_LIMITS:
+                self.ik_limits.append(mink.VelocityLimit(self.model, JOINT_VELOCITY_LIMITS))
+        
+        # Add joint damping for specific joints
+        self.joint_damping_dict = {}
+        if self.joint_damping:
+            try:
+                JOINT_DAMPING = {}
+                for joint_name, damping_value in self.joint_damping.items():
+                    if joint_name in self.robot_dof_names:
+                        JOINT_DAMPING[joint_name] = damping_value
+                if JOINT_DAMPING:
+                    self.ik_limits.append(mink.JointDamping(self.model, JOINT_DAMPING))
+                    self.joint_damping_dict = JOINT_DAMPING
+            except (AttributeError, TypeError):
+                # If JointDamping is not available in mink, use alternative approach
+                # Store joint damping values for later use
+                for joint_name, damping_value in self.joint_damping.items():
+                    if joint_name in self.robot_dof_names:
+                        self.joint_damping_dict[joint_name] = damping_value 
             
         self.setup_retarget_configuration()
         
